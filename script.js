@@ -1,5 +1,9 @@
+// const prompt = require('prompt-sync')();
+
 var password_length = prompt('how long should the password be?')
 const usable_characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+={}[]/.,><?~`'
+
+
 var password = []
 
 const getInt = (min, max) => {
