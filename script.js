@@ -1,20 +1,46 @@
-// const prompt = require('prompt-sync')();
+const lengthInput = document.getElementById("input-length")
+const lengthForm = document.getElementById("length-form")
+const output = document.getElementById("output")
 
-var password_length = prompt('how long should the password be?')
-const usable_characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+={}[]/.,><?~`'
+lengthForm.addEventListener("submit", (event) => {
+    event.preventDefault()
+    password_length = lengthInput.value
+    var password = []
+    const usable_characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+={}[]/.,><?~`'
+
+    const getInt = (min, max) => {
+        min = Math.ceil(min);
+        max = Math.floor(max)
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 
 
-var password = []
+    for (let i = 0; i <password_length; i++) {
+        password.push(usable_characters[getInt(0, usable_characters.length - 1)]);
+    }
 
-const getInt = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max)
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+    var combined = password.join("")
+    console.log(combined)
+    output.textContent = combined
+    console.log(combined)
+});
 
-for (i = 0; i < password_length; i++) {
-    password.push(usable_characters[getInt(0, usable_characters.length - 1)])
-};
+// output.textContent = "Please enter a length and click the button to generate a password."
 
-var combined = password.join("")
-console.log(combined)
+// var usable_characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+={}[]/.,><?~`'
+// var password = []
+
+// const getInt = (min, max) => {
+//     min = Math.ceil(min);
+//     max = Math.floor(max)
+//     return Math.floor(Math.random() * (max - min + 1)) + min;
+// }
+
+// for (let i = 0; i < 12; i++) {
+//     password.push(usable_characters[getInt(0, usable_characters.length - 1)])
+// };
+
+// var combined = password.join("")
+// console.log(combined)
+
+
