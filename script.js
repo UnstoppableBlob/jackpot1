@@ -4,6 +4,21 @@ const output = document.getElementById("output")
 
 lengthForm.addEventListener("submit", (event) => {
     event.preventDefault()
+    
+    let kaomojis = {
+        6: ['(>_<")', "(-_-;)"],
+        7: [],
+        8: [],
+        9: [],
+        10: [],
+        11: [],
+        12: [],
+        13: [],
+        14: [],
+        15: [],
+        16: [],
+                }
+
     password_length = lengthInput.value
     var password = []
     const usable_characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+={}[]/.,><?~`'
@@ -20,9 +35,7 @@ lengthForm.addEventListener("submit", (event) => {
     }
 
     var combined = password.join("")
-    console.log(combined)
     output.textContent = combined
-    console.log(combined)
 });
 
 // output.textContent = "Please enter a length and click the button to generate a password."
