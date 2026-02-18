@@ -63,3 +63,4 @@ insideBox.addEventListener("click", () => {
         });
     }
 });
+

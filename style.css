@@ -1,37 +1,54 @@
- * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none; 
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    -khtml-user-select: none;
 }
 
 html, body {
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-    background: #f5f5f7;
+    animation: colorChange 2s steps(2, jump-none) infinite;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    color: #1d1d1f;
+    color: #ffffff;
 }
 
+
+@keyframes colorChange {
+    0%   { background-color: #1d1c1c; }
+    25%  { background-color: #1f1d1d; }
+    50%  { background-color: #242021; }
+    75%  { background-color: #272122; }
+    100% { background-color: #272021; }
+}
+
+
 form {
-    background: #ffffff;
+    background: #c8394e2c;
     padding: 48px 40px;
-    border-radius: 18px;
+    border-radius: 16px;
     max-width: 480px;
     width: 100%;
     margin-bottom: 24px;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #c8394f;
 }
 
 form:hover {
     transform: translateY(-2px);
+    border-color: #e04159
 }
 
 form p {
-    color: #1d1d1f;
+    color: #e0e0e0;
     font-size: 17px;
     margin-bottom: 20px;
     font-weight: 400;
@@ -43,50 +60,49 @@ input[type="number"] {
     width: 100%;
     padding: 14px 16px;
     margin-bottom: 20px;
-    border: 1px solid #d2d2d7;
+    border: 1px solid #c8394e3b;
     border-radius: 10px;
     font-size: 17px;
     font-weight: 400;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    background: #ffffff;
-    color: #1d1d1f;
+    background: #1a1a1a;
+    color: #ffffff;
     -webkit-appearance: none;
     appearance: none;
 }
 
 input[type="number"]:hover {
-    border-color: #86868b;
-    background: #fafafa;
+    border-color: #c8394ecc;
+    background: #222222;
 }
 
 input[type="number"]:focus {
     outline: none;
-    border-color: #0071e3;
-    background: #ffffff;
+    border-color: #e9435c;
+    background: linear-gradient(125deg, #d83c5450, #8a081c50);
     transform: scale(1.01);
 }
 
 button {
     width: 100%;
     padding: 14px;
-    background: #0071e3;
+    background: linear-gradient(135deg, #c8394f 0%, #d80165 100%);
     color: #ffffff;
     border: none;
     border-radius: 10px;
     font-size: 17px;
-    font-weight: 400;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     letter-spacing: -0.4px;
 }
 
 button:hover {
-    background: #0077ed;
     transform: translateY(-1px);
+    filter: brightness(1.1);
 }
 
 button:active {
-    background: #006edb;
     transform: scale(0.98);
 }
 
@@ -99,20 +115,26 @@ button:active {
 }
 
 #outside-box {
-    background: #ffffff;
+    user-select: none; 
+    background: #8024322f;
     padding: 40px;
-    border-radius: 18px;
+    border-radius: 16px;
     width: 100%;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #c8394f;
 }
 
 #outside-box:hover {
+    user-select: none; 
     transform: translateY(-2px);
+    border-color: #e9435c;
 }
 
+
 #inside-box {
+    user-select: none; 
     text-align: center;
-    background: #f5f5f7;
+    background: linear-gradient(35deg, #d83c5450, #8a081c50);
     padding: 32px 24px;
     border-radius: 12px;
     min-height: 120px;
@@ -123,38 +145,48 @@ button:active {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     position: relative;
-    border: 1px solid transparent;
 }
 
 #inside-box:hover {
-    background: #ebebed;
-    border-color: #d2d2d7;
+    user-select: none; 
+    background: linear-gradient(35deg, #d83c5450, #8a081c50);
+    border-color: #ff6b9d;
 }
 
 #inside-box:active {
+    user-select: none; 
     transform: scale(0.98);
 }
 
 #inside-box::after {
     content: 'Click to copy';
     font-size: 13px;
-    color: #86868b;
+    color: #888888;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    
     pointer-events: none;
     letter-spacing: -0.2px;
     margin-top: 12px;
     font-weight: 400;
+    user-select: none; 
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    -khtml-user-select: none;
 }
 
 #inside-box:hover::after {
+    user-select: none; 
     opacity: 1;
 }
 
 #output {
+    user-select: none; 
     font-size: 28px;
-    color: #1d1d1f;
+    font-family: 'Courier New', Courier, monospace;
+    color: #ffffff;
     font-weight: 500;
+    
     word-break: break-all;
     line-height: 1.5;
     min-height: 56px;
@@ -163,13 +195,13 @@ button:active {
     justify-content: center;
     letter-spacing: 1px;
     transition: all 0.2s ease;
-    user-select: all;
 }
 
 #output:empty::before {
+    user-select: none; 
     content: 'Your password will appear here';
     font-size: 15px;
-    color: #86868b;
+    color: #666666;
     font-weight: 400;
     letter-spacing: -0.4px;
 }
@@ -181,13 +213,31 @@ button:active {
 }
 
 #inside-box.copied {
+    user-select: none; 
     animation: copyPulse 0.3s ease;
+    border-color: #ff6b9d;
 }
 
 #inside-box.copied::after {
+    user-select: none; 
+
     content: 'Copied!';
     opacity: 1;
-    color: #0071e3;
+    color: #ff6b9d;
+}
+
+@media (max-width: 600px) {
+    form, #outside-box {
+        padding: 32px 24px;
+    }
+    
+    #output {
+        font-size: 24px;
+    }
+    
+    form p {
+        font-size: 15px;
+    }
 }
 
 @media (max-width: 600px) {
